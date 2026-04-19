@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CPWD HRMS Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family:Segoe UI;
+  background:#f2f6fc;
+}
+
+/* NAVBAR */
+.navbar{
+  background:#0b3d91;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:15px 25px;
+}
+
+.nav-left{
+  display:flex;
+  align-items:center;
+}
+
+.nav-left img{
+  width:50px;
+  margin-right:10px;
+  size: 10px;
+}
+
+.nav-title{
+  font-size:22px;
+  font-weight:bold;
+  letter-spacing:1px;
+}
+
+.nav-links a{
+  color:white;
+  text-decoration:none;
+  margin-left:15px;
+  font-size:14px;
+}
+
+.nav-links a:hover{
+  text-decoration:underline;
+}
+
+/* MAIN LAYOUT */
+.main{
+  display:flex;
+  min-height:calc(100vh - 60px);
+}
+
+/* LEFT PANEL */
+.left{
+  width:280px;
+  background:#f4f4f4;
+  border-right:1px solid #ddd;
+  padding:10px;
+}
+
+.left h3{
+  background:#ff8c00;
+  color:#fff;
+  padding:10px;
+  margin:0;
+  font-size:16px;
+}
+
+.left p{
+  font-size:13px;
+  margin:8px 0;
+}
+
+.warning{
+  color:red;
+  font-size:12px;
+}
+
+/* CENTER */
+.center{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(90deg,#2c5cc5,#5c8df6);
+}
+
+/* LOGIN BOX */
+.login-box{
+  background:#fff;
+  padding:30px;
+  width:320px;
+  border-radius:10px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  text-align:center;
+}
+
+.login-box img{
+  width:70px;
+}
+
+.login-box h2{
+  color:#2c5cc5;
+  margin:10px 0;
+}
+
+input{
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+
+button{
+  width:100%;
+  padding:10px;
+  background:#2c5cc5;
+  color:#fff;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#1a3fa0;
+}
+
+.captcha{
+  background:#ddd;
+  padding:8px;
+  font-weight:bold;
+  letter-spacing:3px;
+  margin:8px 0;
+}
+
+/* RIGHT PANEL */
+.right{
+  width:300px;
+  background:#fff;
+  padding:20px;
+  text-align:center;
+  border-left:1px solid #ddd;
+}
+
+.right img{
+  width:120px;
+}
+
+.right h3{
+  color:#2c5cc5;
+}
+
+.right p{
+  font-size:13px;
+}
+
+/* FOOTER */
+.footer{
+  background:#0b3d91;
+  color:#fff;
+  text-align:center;
+  padding:8px;
+  font-size:12px;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .left,.right{
+    display:none;
+  }
+  .nav-title{
+    font-size:16px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="nav-left">
+    <img src="images/logo.png">
+    <div class="nav-title">CPWD HRMS</div>
+  </div>
+
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">Services</a>
+    <a href="#">Helpdesk</a>
+    <a href="#">Contact</a>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- LEFT -->
+  <div class="left">
+    <h3>📞 HRMS Helpline</h3>
+    <p>Zone 1: 9508223760</p>
+    <p>Zone 2: 8386753024</p>
+    <p>Zone 3: 6205385439</p>
+    <p>Zone 4: 8401240596</p>
+    <p>Zone 5: 9584318148</p>
+
+    <div class="warning">
+      ⚠ Beware of fake HRMS sites
+    </div>
+  </div>
+
+  <!-- CENTER LOGIN -->
+  <div class="center">
+    <div class="login-box">
+
+      <img src="logo.jpeg">
+      <h2>Login</h2>
+
+      <input type="text" id="user" placeholder="Username">
+      <input type="password" id="pass" placeholder="Password">
+
+      <div class="captcha" id="captcha"></div>
+      <input type="text" id="capInput" placeholder="Enter Captcha">
+
+      <button onclick="login()">Secure Login</button>
+
+      <p style="font-size:12px;color:#555;">
+        Digital India | Secure Governance
+      </p>
+
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+    <img src="logo.jpeg">
+    <h3>CPWD</h3>
+    <p>Central Public Works Department</p>
+    <p><b>Your Password is Your First Defense!</b></p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+© 2026 CPWD HRMS Portal | Government of India | Managed by CPWD
+</div>
+
+<script>
+const users = {
+  "lalit": {
+    name: "Lalit Kumar",
+    dob: "16012000"
+  },
+  "rahul": {
+    name: "Rahul Sharma",
+    dob: "01012000"
+  },
+  "aman": {
+    name: "Aman Verma",
+    dob: "02022001"
+  }
+};
+
+let cap = "";
+
+function genCap(){
+  cap = Math.random().toString(36).substring(2,7);
+  document.getElementById("captcha").innerText = cap;
+}
+genCap();
+
+function login(){
+  let u = document.getElementById("user").value.toLowerCase();
+  let p = document.getElementById("pass").value.toLowerCase();
+  let c = document.getElementById("capInput").value;
+
+  if(users[u]){
+    if(p === u + users[u].dob){
+      if(c === cap){
+
+        // ✅ SAVE DATA
+        localStorage.setItem("login", "true");
+        localStorage.setItem("name", users[u].name);
+
+        alert("Login Success");
+        localStorage.setItem("login", "true");
+localStorage.setItem("user", u);
+localStorage.setItem("name", users[u].name);
+localStorage.setItem("empid", users[u].empid);
+
+window.location = "dashboard.html";
+
+      } else alert("Wrong Captcha");
+    } else alert("Wrong Password");
+  } else alert("User not found");
+}
+</script>
+
+
+</body>
+</html>
