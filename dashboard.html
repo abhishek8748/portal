@@ -247,7 +247,8 @@ th{
 <p id="name"></p>
 <p id="empid"></p>
 
-<p><b>Department:</b> IT</p>
+<p><b>Department:</b> CPWD</p>
+<p><b>Designation:</b> Assistant Section Officer</p>
 
 <p><b>Joining Date:</b> 
 <span style="color:blue;cursor:pointer;" onclick="showUpdate()">Show</span>
@@ -311,7 +312,15 @@ let user=localStorage.getItem("user");
 let name = localStorage.getItem("name");
 
 // document.getElementById("name").innerText=user.toUpperCase();
-document.getElementById("empid").innerText=localStorage.getItem("empid");
+// document.getElementById("empid").innerText=localStorage.getItem("empid");
+let emp = localStorage.getItem("empid");
+localStorage.setItem("empid","7545865")
+
+if(emp){
+  document.getElementById("empid").innerText = emp;
+} else {
+  document.getElementById("empid").innerText = "Not Available";
+}
 document.getElementById("photo").src=""+user+".jpeg";
 document.getElementById("name").innerText = name;
 document.getElementById("welcome").innerText = "Welcome: " + name;
