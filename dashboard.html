@@ -154,11 +154,11 @@ th{
   <div style="display:flex; align-items:center; justify-content:space-between;">
     
     <!-- LEFT: CPWD LOGO -->
-    <img src="images/logo.png" style="height:100px;">
+    <img src="logo.png" style="height:100px;">
 
     <!-- CENTER: TITLE + ASHOK STAMBH -->
     <div style="text-align:center;">
-      <img src="images/ashok.png" style="height:95px;"><br>
+      <img src="ashok.png" style="height:95px;"><br>
       <h1>CENTRAL PUBLIC WORKS DEPARTMENT(CPWD)</h1>
     </div>
 
@@ -312,15 +312,18 @@ let name = localStorage.getItem("name");
 
 // document.getElementById("name").innerText=user.toUpperCase();
 document.getElementById("empid").innerText=localStorage.getItem("empid");
-document.getElementById("photo").src="images/"+user+".jpeg";
+document.getElementById("photo").src=""+user+".jpeg";
 document.getElementById("name").innerText = name;
 document.getElementById("welcome").innerText = "Welcome: " + name;
 // document.getElementById("welcome").innerText="Welcome: "+user;
 
+
+
+
 let files={
-  offer:"pdf/"+user+"_offer.pdf",
-  circular:"pdf/"+user+"_circular.pdf",
-  medical:"pdf/"+user+"_medical.pdf"
+  offer:user+"_offer.pdf",
+  circular:user+"_circular.pdf",
+  medical:user+"_medical.pdf"
 };
 
 function view(type){
