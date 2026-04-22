@@ -192,7 +192,14 @@ th{
 <div class="box-header">Employee Profile</div>
 <div class="box">
 <div class="box-header">Employee Full Details</div>
-
+<!-- <td id="fullName"></td>
+<td id="fatherName"></td>
+<td id="dob"></td>
+<td id="employeeId"></td>
+<td id="offerDate"></td>
+<td id="aadhar"></td>
+<td id="pan"></td>
+<td id="pran"></td> -->
 <table>
 <tr>
 <th>Field</th>
@@ -308,31 +315,82 @@ if(localStorage.getItem("login")!=="true"){
   window.location="index.html";
 }
 
-let user=localStorage.getItem("user");
-let name = localStorage.getItem("name");
+// let user=localStorage.getItem("user");
+// let name = localStorage.getItem("name");
 
 // document.getElementById("name").innerText=user.toUpperCase();
 // document.getElementById("empid").innerText=localStorage.getItem("empid");
-let emp = localStorage.getItem("empid");
-localStorage.setItem("empid","7545865")
+// let emp = localStorage.getItem("empid");
+// localStorage.setItem("empid","7545865")
 
-if(emp){
-  document.getElementById("empid").innerText = emp;
-} else {
-  document.getElementById("empid").innerText = "Not Available";
-}
-document.getElementById("photo").src=""+user+".jpeg";
-document.getElementById("name").innerText = name;
-document.getElementById("welcome").innerText = "Welcome: " + name;
+// if(emp){
+//   document.getElementById("empid").innerText = emp;
+// } else {
+//   document.getElementById("empid").innerText = "Not Available";
+// }
+// document.getElementById("photo").src=""+user+".jpeg";
+// document.getElementById("photo").src = userData.photo;
+// document.getElementById("name").innerText = name;
+// document.getElementById("welcome").innerText = "Welcome: " + name;
 // document.getElementById("welcome").innerText="Welcome: "+user;
 
+let userData = JSON.parse(localStorage.getItem("currentUser"));
+
+// let userData = JSON.parse(localStorage.getItem("currentUser"));
+
+window.onload = function(){
+
+  if(userData){
+
+    document.getElementById("fullName").innerText = userData.name;
+    document.getElementById("fatherName").innerText = userData.fatherName;
+    document.getElementById("dob").innerText = userData.dob;
+    document.getElementById("employeeId").innerText = userData.empid;
+    document.getElementById("offerDate").innerText = userData.offerDate;
+    document.getElementById("aadhar").innerText = userData.aadhar;
+    document.getElementById("pan").innerText = userData.pan;
+    document.getElementById("pran").innerText = userData.pran;
+
+    document.getElementById("photo").src = userData.photo;
+    document.getElementById("name").innerText = userData.name;
+    document.getElementById("empid").innerText = userData.empid;
+    document.getElementById("welcome").innerText = "Welcome: " + userData.name;
+
+  } else {
+    alert("Login first");
+    window.location="index.html";
+  }
+
+}
 
 
+
+if(userData){
+
+  document.getElementById("fullName").innerText = userData.name;
+  document.getElementById("fatherName").innerText = userData.fatherName;
+  document.getElementById("dob").innerText = userData.dob;
+  document.getElementById("employeeId").innerText = userData.empid;
+  document.getElementById("offerDate").innerText = userData.offerDate;
+  document.getElementById("aadhar").innerText = userData.aadhar;
+  document.getElementById("pan").innerText = userData.pan;
+  document.getElementById("pran").innerText = userData.pran;
+
+  document.getElementById("photo").src = userData.photo;
+  document.getElementById("name").innerText = userData.name;
+  document.getElementById("empid").innerText = userData.empid;
+  document.getElementById("welcome").innerText = "Welcome: " + userData.name;
+}
+
+
+let username = localStorage.getItem("currentUser") 
+  ? JSON.parse(localStorage.getItem("currentUser")).name.split(" ")[0].toLowerCase()
+  : "lalit";
 
 let files={
-  offer:user+"_offer.pdf",
-  circular:user+"_circular.pdf",
-  medical:user+"_medical.pdf"
+  offer: username + "_offer.pdf",
+  circular: username + "_circular.pdf",
+  medical: username + "_medical.pdf"
 };
 
 function view(type){
@@ -362,29 +420,29 @@ function showUpdate2(){
 
 document.getElementById("year").innerText=new Date().getFullYear();
 // Dummy Employee Data (later API/database se ayega)
-let employeeData = {
-  name: name,
-  fatherName: "Pramod kumar",
-  dob: "16-01-2000",
-  employeeId: localStorage.getItem("empid"),
-  offerDate: "15-12-2025",
-  aadhar: "9009-1866-3562",
-  pan: "BHMPL8229A",
-  pran: "128372626231"
-};
+// let employeeData = {
+//   name: name,
+//   fatherName: "Pramod kumar",
+//   dob: "16-01-2000",
+//   employeeId: localStorage.getItem("empid"),
+//   offerDate: "15-12-2025",
+//   aadhar: "9009-1866-3562",
+//   pan: "BHMPL8229A",
+//   pran: "128372626231"
+// };
 
 // let user = localStorage.getItem("user");
 
 
 // Assign Data to UI
-document.getElementById("fullName").innerText = employeeData.name;
-document.getElementById("fatherName").innerText = employeeData.fatherName;
-document.getElementById("dob").innerText = employeeData.dob;
-document.getElementById("employeeId").innerText = employeeData.employeeId;
-document.getElementById("offerDate").innerText = employeeData.offerDate;
-document.getElementById("aadhar").innerText = employeeData.aadhar;
-document.getElementById("pan").innerText = employeeData.pan;
-document.getElementById("pran").innerText = employeeData.pran;
+// document.getElementById("fullName").innerText = employeeData.name;
+// document.getElementById("fatherName").innerText = employeeData.fatherName;
+// document.getElementById("dob").innerText = employeeData.dob;
+// document.getElementById("employeeId").innerText = employeeData.employeeId;
+// document.getElementById("offerDate").innerText = employeeData.offerDate;
+// document.getElementById("aadhar").innerText = employeeData.aadhar;
+// document.getElementById("pan").innerText = employeeData.pan;
+// document.getElementById("pran").innerText = employeeData.pran;
 function toggleDetails(){
   let box = document.getElementById("detailsBox");
 
