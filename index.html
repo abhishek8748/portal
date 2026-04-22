@@ -311,33 +311,62 @@ function login(){
   let username = document.getElementById("username").value.trim().toLowerCase();
   let password = document.getElementById("password").value.trim();
 
-  let users = [
-    {
-      username: "bhupendra",
-      name: "Bhupendra Singh",
-      dob: "10-07-1998",
-      fatherName: "Surendra Singh",
-      empid: "56485646",
-      offerDate: "23-03-2025",
-      aadhar: "7113-3754-4104",
-      pan: "CDSPS9834B",
-      pran: "128374326231",
-      photo: "bhupendra.jpeg"
-    }, 
-    {
-      username: "lalit",
-      name: "Lalit Kumar",
-      dob: "16-01-2000",
-      fatherName: "Pramod Kumar",
-      empid: "7545865",
-      offerDate: "15-12-2025",
-      aadhar: "9009-1866-3562",
-      pan: "BHMPL8229A",
-      pran: "128372626231",
-      photo: "lalit.jpeg"
-    }
-  ];
-
+  // let users = [
+  //   {
+  //     username: "bhupendra",
+  //     name: "Bhupendra Singh",
+  //     dob: "10-07-1998",
+  //     fatherName: "Surendra Singh",
+  //     empid: "7545865",
+  //     offerDate: "23-03-2025",
+  //     aadhar: "7113-3754-4104",
+  //     pan: "CDSPS9834B",
+  //     pran: "128374326231",
+  //     photo: "bhupendra.jpeg"
+  //     // designation: "Assistant Section Officer"
+      
+  //   }, 
+  //   {
+  //     username: "lalit",
+  //     name: "Lalit Kumar",
+  //     dob: "16-01-2000",
+  //     fatherName: "Pramod Kumar",
+  //     empid: "7545865",
+  //     offerDate: "15-12-2025",
+  //     aadhar: "9009-1866-3562",
+  //     pan: "BHMPL8229A",
+  //     pran: "128372626231",
+  //     photo: "lalit.jpeg"
+  //   }
+  // ];
+let users = [
+  {
+    username: "bhupendra",
+    name: "Bhupendra Singh",
+    dob: "10-07-1998",
+    fatherName: "Surendra Singh",
+    empid: "7545865",
+    offerDate: "23-03-2025",
+    aadhar: "7113-3754-4104",
+    pan: "CDSPS9834B",
+    pran: "128374326231",
+    photo: "bhupendra.jpeg",
+    designation: "Lower Division Clerk"
+  }, 
+  {
+    username: "lalit",
+    name: "Lalit Kumar",
+    dob: "16-01-2000",
+    fatherName: "Pramod Kumar",
+    empid: "7545865",
+    offerDate: "15-12-2025",
+    aadhar: "9009-1866-3562",
+    pan: "BHMPL8229A",
+    pran: "128372626231",
+    photo: "lalit.jpeg",
+    designation: "Assistant Section Officer"
+  }
+];
   let foundUser = users.find(u => u.username === username);
 
   if(foundUser){
