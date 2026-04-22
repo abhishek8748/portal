@@ -220,10 +220,12 @@ button:hover{
     <div class="login-box">
 
       <img src="logo.jpeg">
-      <h2>Login</h2>
+      <!-- <h2>Login</h2> -->
 
-      <input type="text" id="user" placeholder="Username">
-      <input type="password" id="pass" placeholder="Password">
+<input type="text" id="username">
+<input type="password" id="password">
+<!-- <button onclick="login()">Login</button> -->
+      
 
       <div class="captcha" id="captcha"></div>
       <input type="text" id="capInput" placeholder="Enter Captcha">
@@ -253,21 +255,49 @@ button:hover{
 </div>
 
 <script>
-const users = {
-  "lalit": {
+let users = {
+  lalit: {
+    username: "lalit",
+    password: "1234",
     name: "Lalit Kumar",
-    dob: "16012000"
+    fatherName: "Pramod Kumar",
+    dob: "16-01-2000",
+    empid: "7545865",
+    offerDate: "15-12-2025",
+    aadhar: "9009-1866-3562",
+    pan: "BHMPL8229A",
+    pran: "128372626231",
+    photo: "lalit.jpeg"
   },
-  "rahul": {
+
+  rahul: {
+    username: "rahul",
+    password: "1234",
     name: "Rahul Sharma",
-    dob: "01012000"
+    fatherName: "Rameshaaa Sharma",
+    dob: "10-05-1998",
+    empid: "9876543",
+    offerDate: "01-01-2024",
+    aadhar: "1234-5678-9012",
+    pan: "ABCDE1234F",
+    pran: "998877665544",
+    photo: "rahul.jpeg"
   },
-  "aman": {
+
+  aman: {
+    username: "aman",
+    password: "1234",
     name: "Aman Verma",
-    dob: "02022001"
+    fatherName: "Suresh Verma",
+    dob: "20-08-1999",
+    empid: "1122334",
+    offerDate: "05-03-2023",
+    aadhar: "5678-1234-9876",
+    pan: "XYZAB9876K",
+    pran: "554433221100",
+    photo: "aman.jpeg"
   }
 };
-
 let cap = "";
 
 function genCap(){
@@ -277,31 +307,65 @@ function genCap(){
 genCap();
 
 function login(){
-  let u = document.getElementById("user").value.toLowerCase();
-  let p = document.getElementById("pass").value.toLowerCase();
-  let c = document.getElementById("capInput").value;
 
-  if(users[u]){
-    if(p === u + users[u].dob){
-      if(c === cap){
+  let username = document.getElementById("username").value.trim().toLowerCase();
+  let password = document.getElementById("password").value.trim();
 
-        // ✅ SAVE DATA
-        localStorage.setItem("login", "true");
-        localStorage.setItem("name", users[u].name);
+  let users = [
+    {
+      username: "bhupendra",
+      name: "Bhupendra Singh",
+      dob: "10-07-1998",
+      fatherName: "Surendra Singh",
+      empid: "7545865",
+      offerDate: "23-03-2025",
+      aadhar: "7113-3754-4104",
+      pan: "CDSPS9834B",
+      pran: "128374326231",
+      photo: "bhupendra.jpeg"
+    }, 
+    {
+      username: "lalit",
+      name: "Lalit Kumar",
+      dob: "16-01-2000",
+      fatherName: "Pramod Kumar",
+      empid: "7545865",
+      offerDate: "15-12-2025",
+      aadhar: "9009-1866-3562",
+      pan: "BHMPL8229A",
+      pran: "128372626231",
+      photo: "lalit.jpeg"
+    }
+  ];
 
-        alert("Login Success");
-        localStorage.setItem("login", "true");
-localStorage.setItem("user", u);
-localStorage.setItem("name", users[u].name);
-localStorage.setItem("empid", users[u].empid);
+  let foundUser = users.find(u => u.username === username);
 
-window.location = "dashboard.html";
+  if(foundUser){
 
-      } else alert("Wrong Captcha");
-    } else alert("Wrong Password");
-  } else alert("User not found");
+    // 🔥 SAME PASSWORD RULE FOR ALL
+    let generatedPass =
+      foundUser.name.replace(/\s/g,'').toLowerCase() +
+      foundUser.dob.replace(/-/g,'');
+
+    if(password === generatedPass){
+
+      localStorage.setItem("login","true");
+      localStorage.setItem("currentUser", JSON.stringify(foundUser));
+
+      window.location = "dashboard.html";
+
+    } else {
+      alert("Wrong Password ❌");
+    }
+
+  } else {
+    alert("User not found ❌");
+  }
+
 }
-localStorage.setItem("photo", "lalit.jpeg");
+
+// localStorage.setItem("photo", "lalit.jpeg");
+localStorage.setItem("currentUser", JSON.stringify(users[u]));
 </script>
 
 
