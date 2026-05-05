@@ -199,19 +199,19 @@ button:hover{
 </div>
 
 <!-- MAIN -->
-<!-- <div class="main"> -->
+<div class="main">
 
   <!-- LEFT -->
   <div class="left">
-    <!-- <h3>📞 HRMS Helpline</h3>
+    <h3>📞 HRMS Helpline</h3>
     <p>Zone 1: 9508223760</p>
     <p>Zone 2: 8386753024</p>
     <p>Zone 3: 6205385439</p>
     <p>Zone 4: 8401240596</p>
-    <p>Zone 5: 9584318148</p> -->
+    <p>Zone 5: 9584318148</p>
 
     <div class="warning">
-      <!-- ⚠ Beware of fake HRMS sites -->
+      ⚠ Beware of fake HRMS sites
     </div>
   </div>
 
@@ -255,49 +255,9 @@ button:hover{
 </div>
 
 <script>
-let users = {
-  lalit: {
-    username: "lalit",
-    password: "1234",
-    name: "Lalit Kumar",
-    fatherName: "Pramod Kumar",
-    dob: "16-01-2000",
-    empid: "7545865",
-    offerDate: "15-12-2025",
-    aadhar: "9009-1866-3562",
-    pan: "BHMPL8229A",
-    pran: "128372626231",
-    photo: "lalit.jpeg"
-  },
+// let users = {
 
-  rahul: {
-    username: "rahul",
-    password: "1234",
-    name: "Rahul Sharma",
-    fatherName: "Rameshaaa Sharma",
-    dob: "10-05-1998",
-    empid: "9876543",
-    offerDate: "01-01-2024",
-    aadhar: "1234-5678-9012",
-    pan: "ABCDE1234F",
-    pran: "998877665544",
-    photo: "rahul.jpeg"
-  },
-
-  aman: {
-    username: "aman",
-    password: "1234",
-    name: "Aman Verma",
-    fatherName: "Suresh Verma",
-    dob: "20-08-1999",
-    empid: "1122334",
-    offerDate: "05-03-2023",
-    aadhar: "5678-1234-9876",
-    pan: "XYZAB9876K",
-    pran: "554433221100",
-    photo: "aman.jpeg"
-  }
-};
+// };
 let cap = "";
 
 function genCap(){
@@ -349,7 +309,7 @@ let users = [
     offerDate: "23-03-2025",
     aadhar: "7113-3754-4104",
     pan: "CDSPS9834B",
-    pran: "128387326231",
+    pran: "128374326231",
     photo: "bhupendra.jpeg",
     designation: "Lower Division Clerk"
   }, 
@@ -358,11 +318,11 @@ let users = [
     name: "Lalit Kumar",
     dob: "16-01-2000",
     fatherName: "Pramod Kumar",
-    empid: "7545665",
+    empid: "7545865",
     offerDate: "15-12-2025",
     aadhar: "9009-1866-3562",
     pan: "BHMPL8229A",
-    pran: "128372677231",
+    pran: "128372626231",
     photo: "lalit.jpeg",
     designation: "Assistant Section Officer"
   },
@@ -372,7 +332,7 @@ let users = [
   name: "Rifakat Khan",
   dob: "19-11-1995",
   fatherName: "Bundu khan",
-  empid: "7555865",
+  empid: "7545865",
   offerDate: "10-02-2025",
   aadhar: "7342-8614-2072",
   pan: "ABRPZ1410H",
@@ -385,17 +345,30 @@ let users = [
     name: "Akansha singh",
     dob: "06-08-2004",
     fatherName: "Chhatarpal Singh",
-    empid: "7545876",
+    empid: "7545865",
     offerDate: "15-12-2025",
-    aadhar: "9808-8131-5932",
+    aadhar: "9009-1866-3562",
     pan: "QCXPS4032R",
-    pran: "121172626231",
+    pran: "128372626231",
     photo: "Akansha.jpeg",
-    designation: "Lower Division Clerk"
+    designation: "Assistant Section Officer"
+  },
+ {
+    username: "sheetal",
+    name: "Sheetal Gandhi",
+    dob: "02-09-1999",
+    fatherName: "Om Prakash Gandhi",
+    empid: "7545865",
+    offerDate: "15-12-2025",
+    aadhar: "8674-9495-7872",
+    pan: "CIWPG8122K",
+    pran: "128372628831",
+    photo: "sheetal.jpeg",
+    designation: "Deputy Director"
   }
-  
+
 ];
-  let foundUser = users.find(u => u.username === username);
+  // let foundUser = users.find(u => u.username === username);
 
   if(foundUser){
 
@@ -408,6 +381,7 @@ let users = [
 
       localStorage.setItem("login","true");
       localStorage.setItem("currentUser", JSON.stringify(foundUser));
+      // localStorage.setItem("currentUser", JSON.stringify(foundUser));
 
       window.location = "dashboard.html";
 
@@ -422,7 +396,7 @@ let users = [
 }
 
 // localStorage.setItem("photo", "lalit.jpeg");
-localStorage.setItem("currentUser", JSON.stringify(users[u]));
+// localStorage.setItem("currentUser", JSON.stringify(users[u]));
 </script>
 
 
